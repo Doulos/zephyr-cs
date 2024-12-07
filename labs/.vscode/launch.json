@@ -1,0 +1,47 @@
+// Copyright (c) 2024 Doulos
+// SPDX-License-Identifier: Apache-2.0
+
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "gdb",
+            "type": "cortex-debug",
+            "request": "launch",
+            "servertype": "external",
+            "gdbTarget": "localhost:3333",
+            "cwd": "${workspaceFolder}",
+            "toolchainPrefix": "${input:zephyrSDK}/${input:arch}-zephyr-eabi/bin/${input:arch}-zephyr-eabi",  // needed for the gdb,
+            "executable": "/zephyr-training/build/zephyr/zephyr.elf",
+            "rtos": "Zephyr",
+            "preLaunchTask": "dbgserver"
+        },
+        {
+            "name": "qemu",
+            "type": "cortex-debug",
+            "request": "launch",
+            "servertype": "external",
+            "gdbTarget": "localhost:1234",
+            "cwd": "${workspaceFolder}",
+            "toolchainPrefix": "${input:zephyrSDK}/${input:arch}-zephyr-eabi/bin/${input:arch}-zephyr-eabi",  // needed for the gdb,
+            "executable": "/zephyr-training/build/zephyr/zephyr.elf",
+            "rtos": "Zephyr",
+            "preLaunchTask": "dbgserver qemu",
+            "postDebugTask": "stop dbgserver"
+        }
+    ],
+    "inputs": [
+        {
+            "id": "zephyrSDK",
+            "type": "command",
+            "command": "cpptools.activeConfigCustomVariable",
+            "args": "zephyrSDK"
+        },
+        {
+            "id": "arch",
+            "type": "command",
+            "command": "cpptools.activeConfigCustomVariable",
+            "args": "arch"
+        }
+    ]
+}

@@ -16,11 +16,11 @@
     "customizations": {
         "vscode": {
 	    "settings": {
-		cmake.configureOnOpen": false,
+		"cmake.configureOnOpen": false,
 	        "cmake.showOptionsMovedNotification": false,
                 "files.exclude": {
 	            ".provisioning/": true
-	        },
+	        }
 	    },
 	    "extensions": [
 		    "ms-vscode.cpptools-extension-pack",
@@ -30,7 +30,7 @@
 		    "marus25.cortex-debug",
 		    "donjayamanne.python-environment-manager",
 		    "MS-vsliveshare.vsliveshare"
-	    ],
-        },
-    },
+	    ]
+	}
+    }
 }

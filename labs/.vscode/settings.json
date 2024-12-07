@@ -1,0 +1,23 @@
+// Copyright (c) 2024 Doulos
+// SPDX-License-Identifier: Apache-2.0
+
+{
+	
+    // Hush CMake
+	"cmake.configureOnOpen": false,
+
+	// do not monitor compile_commands.json to avoid trouble with pristine build
+	"files.watcherExclude": {
+		"/zephyr-training/build/*": true,
+	},
+
+	// IntelliSense
+	"C_Cpp.default.compilerPath": "opt/toolchains/zephyr-sdk-0.16.8",
+	"C_Cpp.default.compileCommands": "/zephyr-training/build/compile_commands.json",
+
+	// File Associations
+	"files.associations": {
+		"stdint.h": "c"
+	},
+	"cortex-debug.variableUseNaturalFormat": true
+}

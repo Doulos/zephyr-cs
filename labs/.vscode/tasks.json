@@ -1,0 +1,167 @@
+// Copyright (c) 2024 Doulos
+// SPDX-License-Identifier: Apache-2.0
+
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "west build",
+			"type" : "shell",
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"linux": {
+				"command": "${input:zephyrVenv}/bin/west"
+			},
+			"windows": {
+				"command": "${input:zephyrVenv}/Scripts/west.exe"
+			},
+			"osx": {
+				"command": "${input:zephyrVenv}/bin/west"
+			},
+			"args": ["build"],
+			"problemMatcher": [
+				"$gcc"
+			]
+		},
+		{
+			"label": "west custom build",
+			"type" : "shell",
+			"group": {
+				"kind": "build",
+				"isDefault": false
+			},
+			"linux": {
+				"command": "${input:zephyrVenv}/bin/west"
+			},
+			"windows": {
+				"command": "${input:zephyrVenv}/Scripts/west.exe"
+			},
+			"osx": {
+				"command": "${input:zephyrVenv}/bin/west"
+			},
+			"args": ["build", "-p", "-b", "${input:board}", "${fileDirname}/.."],
+			"problemMatcher": [
+				"$gcc"
+			]
+		},
+		{
+			"label": "west flash",
+			"type": "shell",
+			"linux": {
+				"command": "${input:zephyrVenv}/bin/west"
+			},
+			"windows": {
+				"command": "${input:zephyrVenv}/Scripts/west.exe"
+			},
+			"osx": {
+				"command": "${input:zephyrVenv}/bin/west"
+			},
+			"args": [
+				"flash"
+			],
+			"problemMatcher": [
+				"$gcc"
+			]
+		},
+		{
+			"label" : "dbgserver",
+			"type" : "shell",
+			"group": {
+			    "kind": "build",
+			    "isDefault": false
+			},
+			"isBackground": true,
+			"linux": {
+				"command": "${input:zephyrVenv}/bin/west"
+			},
+			"windows": {
+				"command": "${input:zephyrVenv}/Scripts/west.exe"
+			},
+			"osx": {
+				"command": "${input:zephyrVenv}/bin/west"
+			},
+			"args": [
+				"build", "-t", "debugserver"
+			],
+			"problemMatcher": {
+			    "pattern": {
+					"regexp": ".",
+					"file": 1,"line": 1,
+					"column": 1, "message": 1
+			    },
+			    "background": {
+					"activeOnStart": true,
+					"beginsPattern": { "regexp": "GDB server listening on port 3333"},
+					"endsPattern": { "regexp": "." }
+				}
+			}
+		},
+		{
+			"label" : "dbgserver qemu",
+			"type" : "shell",
+			"isBackground": true,
+			"linux": {
+				"command": "${input:zephyrVenv}/bin/west"
+			},
+			"windows": {
+				"command": "${input:zephyrVenv}/Scripts/west.exe"
+			},
+			"osx": {
+				"command": "${input:zephyrVenv}/bin/west"
+			},
+			"args": [
+				"build", "-t", "debugserver_qemu"
+			],
+			"problemMatcher": {
+			    "pattern": {
+					"regexp": "FATAL ERROR",
+					"file": 1,"line": 1,
+					"column": 1, "message": 1 
+				},
+			    "background": {
+					"activeOnStart": true,
+					"beginsPattern": { "regexp": "To exit from QEMU enter"},
+					"endsPattern": { "regexp": "." }
+			    }
+			}
+		},
+		{
+			"label": "stop dbgserver",
+			"command": "echo ${input:terminate}",
+			"type": "shell"
+		}
+	],
+	"inputs": [
+		{
+			"id": "board",
+			"type": "pickString",
+			"description": "See https://docs.zephyrproject.org/latest/boards/index.html",
+			"options": [
+				"frdm_mcxn947/mcxn947/cpu0",
+				"native_sim/native/64",
+				"nrf52840dk/nrf52840",
+				"qemu_cortex_m3"
+			]
+		},
+		{
+			"id": "terminate",
+			"type": "command",
+			"command": "workbench.action.tasks.terminate",
+			"args": "terminateAll"
+		},
+		{
+			"id": "zephyrVenv",
+		       	"type": "command",
+		       	"command": "cpptools.activeConfigCustomVariable",
+		       	"args": "zephyrVenv"
+	       	},
+		{
+			"id": "zephyrVenv",
+			"type": "command",
+		       	"command": "cpptools.activeConfigCustomVariable",
+		       	"args": "zephyrVenv"
+		}
+	]
+}

@@ -1,0 +1,25 @@
+// Copyright (c) 2024 Doulos
+// SPDX-License-Identifier: Apache-2.0
+
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/**"
+            ],
+            "defines": [],
+            "cStandard": "c17",
+            "cppStandard": "gnu++17",
+            "intelliSenseMode": "linux-gcc-x64",
+
+            "customConfigurationVariables": {
+                "zephyrBase": "/zephyr-training/deps",
+                "zephyrSDK": "/opt/toolchains/zephyr-sdk-0.16.8",
+                "zephyrVenv": "/opt/venv",
+                "arch": "arm"
+            }
+        }
+    ],
+    "version": 4
+}
