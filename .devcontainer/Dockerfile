@@ -28,6 +28,7 @@ RUN \
   && apt-get -y install --no-install-recommends \
   gcc-multilib \
   make \
+  minicom \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
 
