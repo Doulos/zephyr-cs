@@ -1,0 +1,23 @@
+# Copyright (c) 2024 Doulos
+# SPDX-License-Identifier: Apache-2.0
+
+manifest:
+  self:
+    path: labs
+
+  remotes:
+    - name: zephyrproject-rtos
+      url-base: https://github.com/zephyrproject-rtos
+
+  projects:
+    - name: zephyr
+      remote: zephyrproject-rtos
+      revision: v3.7.0
+      import:
+        path-prefix: deps
+        name-allowlist:
+          - zephyr
+          - cmsis
+          - hal_nxp
+          - segger
+          - net-tools

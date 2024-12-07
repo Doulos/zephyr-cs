@@ -1,0 +1,36 @@
+// Copyright (c) 2024 Doulos
+// SPDX-License-Identifier: Apache-2.0
+
+{
+    "name": "Doulos Zephyr Training Plaground",
+    "build": {
+        "dockerfile": "Dockerfile"
+    },
+    "runArgs": ["--cap-add=NET_ADMIN", "--device=/dev/net/tun"],
+    "workspaceMount": "source=${localWorkspaceFolder}/labs,target=/zephyr-training/labs,type=bind",
+    "workspaceFolder": "/zephyr-training/labs",
+    "mounts" : [
+	    "source=/dev/net/tun,target=/dev/net/tun,type=bind"],
+    "onCreateCommand": "bash -i /zephyr-training/labs/.provisioning/setup.sh",
+    "postStartCommand": "bash -i /zephyr-training/deps/tools/net-tools/net-setup.sh start",
+    "customizations": {
+        "vscode": {
+	    "settings": {
+		cmake.configureOnOpen": false,
+	        "cmake.showOptionsMovedNotification": false,
+                "files.exclude": {
+	            ".provisioning/": true
+	        },
+	    },
+	    "extensions": [
+		    "ms-vscode.cpptools-extension-pack",
+		    "ms-python.python",
+		    "ms-vscode.vscode-embedded-tools",
+		    "ms-vscode.vscode-serial-monitor",
+		    "marus25.cortex-debug",
+		    "donjayamanne.python-environment-manager",
+		    "MS-vsliveshare.vsliveshare"
+	    ],
+        },
+    },
+}
