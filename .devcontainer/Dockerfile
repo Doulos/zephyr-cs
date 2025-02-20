@@ -29,6 +29,7 @@ RUN \
   gcc-multilib \
   make \
   minicom \
+  clang-format \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
 

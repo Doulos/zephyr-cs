@@ -11,8 +11,8 @@
     "workspaceFolder": "/zephyr-training/labs",
     "mounts" : [
 	    "source=/dev/net/tun,target=/dev/net/tun,type=bind"],
-    "onCreateCommand": "bash -i /zephyr-training/labs/.provisioning/setup.sh",
-    "postStartCommand": "bash -i /zephyr-training/deps/tools/net-tools/net-setup.sh start",
+    "onCreateCommand": "bash  /zephyr-training/labs/.provisioning/setup.sh",
+    "postStartCommand": "bash /zephyr-training/deps/tools/net-tools/net-setup.sh start",
     "customizations": {
         "vscode": {
 	    "settings": {
@@ -20,7 +20,8 @@
 	        "cmake.showOptionsMovedNotification": false,
                 "files.exclude": {
 	            ".provisioning/": true
-	        }
+	        },
+		"python.showStartPage": false
 	    },
 	    "extensions": [
 		    "ms-vscode.cpptools-extension-pack",

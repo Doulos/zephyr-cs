@@ -17,7 +17,7 @@
 
 	// File Associations
 	"files.associations": {
-		"stdint.h": "c"
+		"*.h": "c"
 	},
 	"cortex-debug.variableUseNaturalFormat": true
 }
