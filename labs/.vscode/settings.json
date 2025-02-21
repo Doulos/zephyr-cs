@@ -19,5 +19,8 @@
 	"files.associations": {
 		"*.h": "c"
 	},
+	"files.exclude": {
+		"solutions/**" : false
+	},
 	"cortex-debug.variableUseNaturalFormat": true
 }

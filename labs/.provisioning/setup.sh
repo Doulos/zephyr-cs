@@ -13,7 +13,7 @@ cat >> $HOME/.bashrc << 'EOF'
 # aliases to make student's life easier
 alias ll='ls -lah'
 alias cdlab='cd /zephyr-training/labs'
-alias glcdsim='python /zephyr-training/labs/tools/glcdsim.py'
+alias glcdsim='python /zephyr-training/labs/zdoulos/glcdsim'
 alias arm-zephyr-eabi-addr2line='/opt/toolchains/zephyr-sdk-0.16.8/arm-zephyr-eabi/bin/arm-zephyr-eabi-addr2line'
 
 # enable completion for west command
