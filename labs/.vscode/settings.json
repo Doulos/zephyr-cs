@@ -20,7 +20,7 @@
 		"*.h": "c"
 	},
 	"files.exclude": {
-		"solutions/**" : false
+		"solutions/**" : true
 	},
 	"cortex-debug.variableUseNaturalFormat": true
 }
