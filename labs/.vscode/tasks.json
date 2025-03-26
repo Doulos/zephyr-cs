@@ -41,7 +41,7 @@
 			"osx": {
 				"command": "${input:zephyrVenv}/bin/west"
 			},
-			"args": ["build", "-p", "-b", "${input:board}", "${fileDirname}/.."],
+			"args": ["build", "-p", "-b", "${input:board}", "${input:lab}"],
 			"problemMatcher": [
 				"$gcc"
 			]
@@ -143,6 +143,28 @@
 				"native_sim/native/64",
 				"nrf52840dk/nrf52840",
 				"qemu_cortex_m3"
+			]
+		},
+		{
+			"id": "lab",
+			"type": "pickString",
+			"description": "Which Lab to compile",
+			"options": [
+				"lab01",
+				"lab03",
+				"lab06",
+				"lab07",
+				"lab08",
+				"lab09",
+				"lab10",
+				"lab11",
+				"lab13",
+				"lab14",
+				"lab16",
+				"lab17",
+				"lab18",
+				"lab20",
+				"lab22",
 			]
 		},
 		{
