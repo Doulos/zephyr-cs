@@ -8,12 +8,12 @@ ARG BASE_IMAGE="ghcr.io/embeddedcontainers/zephyr:base-${ZEPHYR_SDK_VERSION}SDK"
 
 FROM ${BASE_IMAGE}
 
-
 #------------------------------------------------------
 # Setup for tun/tap devices
 #------------------------------------------------------
 RUN \
-  apt-get -y update \ 
+  apt-get --allow-releaseinfo-change update \
+  && apt-get -y update \
   && apt-get -y install iproute2 \
   && apt-get clean \ 
   && rm -rf /var/libs/apt/lists/* \
@@ -24,7 +24,8 @@ RUN \
 # OS dependencies and packages
 #------------------------------------------------------
 RUN \
-  apt-get -y update \
+  apt-get --allow-releaseinfo-change update \
+  && apt-get -y update \
   && apt-get -y install --no-install-recommends \
   gcc-multilib \
   make \
@@ -40,7 +41,8 @@ RUN \
 ARG ZEPHYR_SDK_INSTALL_DIR
 ARG ZEPHYR_SDK_TOOLCHAINS
 RUN \
-  apt-get -y update \
+  apt-get --allow-releaseinfo-change update \
+  && apt-get -y update \
   && apt-get -y install --no-install-recommends \
   tree \
   xz-utils \

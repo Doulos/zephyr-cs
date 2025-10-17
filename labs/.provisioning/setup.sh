@@ -10,6 +10,9 @@ west config build.dir-fmt /zephyr-training/build
 west completion bash > $HOME/west-completion.bash
 
 cat >> $HOME/.bashrc << 'EOF'
+# overwrite prompt
+PS1="\u@doulos:\w$"
+
 # aliases to make student's life easier
 alias ll='ls -lah'
 alias cdlab='cd /zephyr-training/labs'

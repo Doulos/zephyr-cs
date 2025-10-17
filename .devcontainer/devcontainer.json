@@ -10,28 +10,26 @@
     "workspaceMount": "source=${localWorkspaceFolder}/labs,target=/zephyr-training/labs,type=bind",
     "workspaceFolder": "/zephyr-training/labs",
     "mounts" : [
-	    "source=/dev/net/tun,target=/dev/net/tun,type=bind"],
+        "source=/dev/net/tun,target=/dev/net/tun,type=bind"
+    ],
     "onCreateCommand": "bash  /zephyr-training/labs/.provisioning/setup.sh",
     "postStartCommand": "bash /zephyr-training/deps/tools/net-tools/net-setup.sh start",
     "customizations": {
         "vscode": {
-	    "settings": {
-		"cmake.configureOnOpen": false,
-	        "cmake.showOptionsMovedNotification": false,
+            "settings": {
+                "cmake.configureOnOpen": false,
+                "cmake.showOptionsMovedNotification": false,
                 "files.exclude": {
-	            ".provisioning/": true
-	        },
-		"python.showStartPage": false
-	    },
-	    "extensions": [
-		    "ms-vscode.cpptools-extension-pack",
-		    "ms-python.python",
-		    "ms-vscode.vscode-embedded-tools",
-		    "ms-vscode.vscode-serial-monitor",
-		    "marus25.cortex-debug",
-		    "donjayamanne.python-environment-manager",
-		    "MS-vsliveshare.vsliveshare"
-	    ]
-	}
+                    ".provisioning/": true
+                }
+            },
+            "extensions": [
+                "ms-vscode.cpptools-extension-pack",
+                "ms-vscode.vscode-embedded-tools",
+                "ms-vscode.vscode-serial-monitor",
+                "marus25.cortex-debug",
+                "MS-vsliveshare.vsliveshare"
+           ]
+        }
     }
 }
