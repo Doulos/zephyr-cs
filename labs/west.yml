@@ -18,6 +18,7 @@ manifest:
         name-allowlist:
           - zephyr
           - cmsis
+          - hal_infineon
           - hal_nxp
           - segger
           - net-tools
