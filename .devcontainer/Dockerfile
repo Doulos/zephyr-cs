@@ -54,6 +54,5 @@ RUN \
   && sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen \
   && locale-gen \
   && apt-get remove -y --purge \
-  wget \
   xz-utils \
   && apt-get clean 

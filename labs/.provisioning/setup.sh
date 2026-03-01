@@ -15,6 +15,8 @@ pip install "setuptools<81"
 west config build.dir-fmt /zephyr-training/build
 west completion bash > $HOME/west-completion.bash
 
+base64 -d labs/.provisioning/slab.bin > $HOME/setuplab
+
 cat >> $HOME/.bashrc << 'EOF'
 # overwrite prompt
 PS1="\u@doulos:\w$ "
@@ -23,6 +25,7 @@ PS1="\u@doulos:\w$ "
 alias ll='ls -lah'
 alias cdlab='cd /zephyr-training/labs'
 alias glcdsim='python /zephyr-training/labs/zdoulos/glcdsim'
+alias setuplab='python $HOME/setuplab'
 alias arm-zephyr-eabi-addr2line='/opt/toolchains/zephyr-sdk-0.16.8/arm-zephyr-eabi/bin/arm-zephyr-eabi-addr2line'
 
 # enable completion for west command
