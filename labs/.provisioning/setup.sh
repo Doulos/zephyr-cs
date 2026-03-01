@@ -6,6 +6,12 @@ west update --narrow -o=--depth=1
 west zephyr-export
 pip install -r deps/zephyr/scripts/requirements.txt
 pip install rich
+
+# Twister stops working on 3.7.x branch if setuptools>=82 is installed
+# downgrade as needed
+# see: https://github.com/zephyrproject-rtos/zephyr/issues/103814
+pip install "setuptools<81"
+
 west config build.dir-fmt /zephyr-training/build
 west completion bash > $HOME/west-completion.bash
 
