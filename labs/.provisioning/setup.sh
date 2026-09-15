@@ -16,6 +16,7 @@ west config build.dir-fmt /zephyr-training/build
 west completion bash > $HOME/west-completion.bash
 
 base64 -d labs/.provisioning/slab.bin > $HOME/setuplab
+cp deps/zephyr/.clang-format labs/
 
 cat >> $HOME/.bashrc << 'EOF'
 # overwrite prompt
